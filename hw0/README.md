@@ -25,7 +25,7 @@ You also need to install [Numpy](http://www.numpy.org/) and [Matplotlib](https:/
 http://cs231n.github.io/python-numpy-tutorial/.  
 
 
-## Load Audio Files and Audio Representations
+## Audio Representations
 Your first mission is loading audio files and displaying it  as 2D time-frequency representations.  The tutorial code is provided in the following link.
 
 [GCT634 (2018) Audio Representations.ipynb](https://drive.google.com/file/d/1ZqB1u5YAVLWVLyRGdeHeM40RVahN9FLJ/view?usp=sharing)
