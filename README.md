@@ -1,2 +1,2 @@
 # gct634-2018
-KAIST GCT634:Musical Applications of Machine Learning
+This is a code repository for KAIST GCT634, Musical Applications of Machine Learning 
