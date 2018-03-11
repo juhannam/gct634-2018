@@ -8,18 +8,22 @@ First, make sure that you have a Python programming environment on your machine.
 
 >#### Virtualenv  (tested on MAC OS X)
 >
->To create a virtual environment and Install Python packages: 
+>To create a virtual environment: 
 >```sh
 >$ mkdir gct634
 >$ virtualenv ./gct634
->$ cd gct634
->$ pip install librosa
 >```
 >To activate the created environment (the **bin** folder is under the **gct634** folder): 
 >```sh
+>$ cd gct634
 >$ source ./bin/activate
 >```
->Then, your terminal prompt will change to include **(gct634)** and now you are in the virtual environment. 
+>Then, your terminal prompt will change to include **(gct634)** and now you are in the virtual environment.
+>
+>In the virtual environment, install Python packages:
+>```sh
+>$ pip install librosa
+>```
 
 You also need to install [Numpy](http://www.numpy.org/) and [Matplotlib](https://matplotlib.org/) for matrix computation and visualization. Before installing them, make sure you already have them in your Python setup.  A nice tutorial of Numpy is linked at 
 http://cs231n.github.io/python-numpy-tutorial/.  
