@@ -79,7 +79,7 @@ Now it is your turn. You should improve the baseline code by developing your own
     * Number of filters
     * Model depth
 
-* You should try different hyperparameters to train the model or optimizers
+* You should try different hyperparameters to train the model and optimizers:
     * Learning rate
     * Patience value
     * Decreasing factor of learning rate 
