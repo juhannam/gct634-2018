@@ -72,21 +72,22 @@ Test Accuracy: 0.4828
 Now it is your turn. You should improve the baseline code by developing your own algorithm. There are many ways to improve it. The followings are possible ideas: 
 
 * The first thing to do is to segment audio clips and generate more data. The baseline code utilizes the whole mel-spectrogram as an input to the network (e.g. 128x1287 dimensions). Try to make the network input between 3-5 seconds segment and average the predictions of the segmentations for an audio clip.
-* You can try 1D CNN or 2D CNN models by adjusting the following parameters 
+* You can try 1D CNN or 2D CNN models and choose different model parameters:
     * Filter size
     * Pooling size
     * Stride size 
     * Number of filters
     * Model depth
 
-* You should try different hyperparameters to train the model.   
+* You should try different hyperparameters to train the model or optimizers
     * Learning rate
     * Patience value
     * Decreasing factor of learning rate 
     * Minibatch size
     * Model depth
+    * Optimizers: SGD (with Nesterov momentum), Adam, RMSProp, ...
 
-* Also, you may try different parameters (e.g. hop and window size) to extract mel-spectrogram or different features as a input to the network (e.g. chroma features ...). 
+* Also, you may try different parameters (e.g. hop and window size) to extract mel-spectrogram or different features as input to the network (e.g. MFCC, chroma features ...). 
 
 ## Deliverables
 You should submit your Python code (.py files) and homework report (.pdf file) to KLMS. The report should include:
