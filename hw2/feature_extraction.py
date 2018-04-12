@@ -1,7 +1,7 @@
 # GCT634 (2018) HW2
 #
 # Apr-11-2018: initial version
-# 
+#
 # Jongpil Lee
 #
 
@@ -18,7 +18,7 @@ hop = 512
 melBin = 128
 
 # A location where gtzan labels are located
-label_path = '/Users/richter/gtzan/'
+label_path = './gtzan/'
 
 # read train / valid / test lists
 with open(label_path + 'train_filtered.txt') as f:
@@ -32,13 +32,13 @@ song_list = train_list+valid_list+test_list
 print(len(song_list))
 
 # A location where gtzan dataset is located
-load_path = '/Users/richter/gtzan/'
+load_path = './gtzan/'
 
 # A location where mel-spectrogram would be saved
-save_path = '/Users/richter/gct634-2018/hw2/gtzan_mel/'
+save_path = './gtzan_mel/'
 
 def main():
-    
+
     # save mel-spectrograms
     for iter in range(0,len(song_list)):
         file_name = load_path + song_list[iter].replace('.wav','.au')
@@ -58,7 +58,7 @@ def main():
 
         # mel basis
         mel_basis = librosa.filters.mel(sr,n_fft=fftsize,n_mels=melBin)
-        
+
         # mel basis are multiplied to the STFT
         mel_S = np.dot(mel_basis,X)
 
@@ -79,5 +79,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

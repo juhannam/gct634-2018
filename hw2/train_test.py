@@ -1,7 +1,7 @@
 # GCT634 (2018) HW2
 #
 # Apr-11-2018: initial version
-# 
+#
 # Jongpil Lee
 #
 
@@ -32,7 +32,7 @@ num_epochs = 50
 num_frames = 120
 
 # A location where labels and features are located
-label_path = '/Users/richter/gtzan/'
+label_path = './gtzan/'
 
 # read train / valid / test lists
 y_train_dict = {}
@@ -69,7 +69,7 @@ for iter in range(len(y_test_dict)):
             y_test_dict[test_list[iter]] = iter2
 
 
-mel_path = '/Users/richter/gct634-2018/hw2/gtzan_mel/'
+mel_path = './gtzan_mel/'
 
 # load data
 x_train = np.zeros((len(train_list),melBins,frames))
@@ -116,7 +116,7 @@ class gtzandata(Dataset):
         mel = self.x[index]
 
         entry = {'mel': mel, 'label': self.y[index]}
-        
+
         return entry
 
     def __len__(self):
@@ -137,7 +137,7 @@ test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=True, drop_la
 class model_1DCNN(nn.Module):
     def __init__(self):
         super(model_1DCNN, self).__init__()
-   
+
         self.conv0 = nn.Sequential(
             nn.Conv1d(128, 32, kernel_size=8, stride=1, padding=0),
             nn.BatchNorm1d(32),
@@ -229,6 +229,7 @@ def eval(model,valid_loader,criterion):
     label_all = []
 
     for i, data in enumerate(valid_loader):
+        model.eval()
         audio = data['mel']
         label = data['label']
         # have to convert to an autograd.Variable type in order to keep track of the gradient...
@@ -270,10 +271,3 @@ acc = float(len(test_list) - np.count_nonzero(comparison)) / len(test_list)
 print('Test Accuracy: {:.4f} \n'. format(acc))
 
 # TODO segmentation eval function average !!!
-
-
-
-
-
-
-
