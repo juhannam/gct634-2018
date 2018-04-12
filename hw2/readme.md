@@ -78,6 +78,7 @@ Now it is your turn. You should improve the baseline code by developing your own
     * Stride size 
     * Number of filters
     * Model depth
+    * Regularization: L2/L1 and Dropout
 
 * You should try different hyperparameters to train the model and optimizers:
     * Learning rate
@@ -88,6 +89,9 @@ Now it is your turn. You should improve the baseline code by developing your own
     * Optimizers: SGD (with Nesterov momentum), Adam, RMSProp, ...
 
 * Also, you may try different parameters (e.g. hop and window size) to extract mel-spectrogram or different features as input to the network (e.g. MFCC, chroma features ...). 
+
+* Furthermore, you can augment data using audio effects (if time permits)
+
 
 ## Deliverables
 You should submit your Python code (.py files) and homework report (.pdf file) to KLMS. The report should include:
