@@ -1,6 +1,6 @@
 # GCT634 (2018) HW2
 #
-# Apr-11-2018: initial version
+# Apr-17-2018: gpu code added version
 # 
 # Jongpil Lee
 #
@@ -24,7 +24,7 @@ torch.backends.cudnn.enabled = True
 
 # gpu_option
 gpu_use = 0
-which_gpu = 0
+which_gpu = 2
 
 # options
 melBins = 128
@@ -239,6 +239,7 @@ def eval(model,valid_loader,criterion):
     output_all = []
     label_all = []
 
+    model.eval()
     for i, data in enumerate(valid_loader):
         audio = data['mel']
         label = data['label']
