@@ -102,30 +102,20 @@ def preprocess(dataset_dir, batch_size, train_ratio=0.6, test_ratio=0.2, mode='f
 #'beatsync' mode use info and batch size, especially use timing information in info.chord and info.beat
 def frame_accuracy(annotation, prediction, info=None, batch_size=None, mode='frame'):
     if mode == 'beatsync':
-        batch_beat = batch_dataset(info.beat, batch_size)
-        batch_beat = batch_beat.reshape(batch_beat.shape[0]*batch_beat.shape[1])
+        current_beat = 0
+        prediction_frame_list = []
+        for i in range(len(info.chroma)): #Iteration of songs
+            num_song_frame = int(info.chroma[i].shape[0]/batch_size)*batch_size
+            prediction_song_frame = np.zeros(num_song_frame)
+            num_beat = int((info.beat[i].shape[0] - 1)/batch_size)*batch_size
+            for j in range(num_beat):
+                prediction_song_frame[info.beat[i][j]:info.beat[i][j+1]] = prediction[current_beat+j]
+            prediction_frame_list.append(prediction_song_frame)
+            current_beat += num_beat
 
-        num_frame = 0
-        for el in info.chord:
-            num_frame += int(el.shape[0]/batch_size)*batch_size
-        prediction_frame = np.zeros(num_frame)
-
-        current_frame = batch_beat[0]
-        current_song = 0
-        for i in range(batch_beat.shape[0] - 1):
-            num_frame = batch_beat[i+1] - batch_beat[i]
-            if num_frame > 0: #frame in a song
-                prediction_frame[current_frame:current_frame+num_frame] = prediction[i]
-                current_frame = num_frame + current_frame
-            else: #end frame of a song
-                end_frame = int(info.chord[current_song].shape[0]/batch_size)*batch_size
-                num_frame = end_frame - batch_beat[i]
-                prediction_frame[current_frame:current_frame+num_frame] = prediction[i]
-                current_frame = num_frame + current_frame + batch_beat[i+1]
-                current_song += 1
-
-        prediction = prediction_frame
+        prediction = np.concatenate(prediction_frame_list)
 
     accuracy = 1-np.count_nonzero(prediction - annotation)/float(prediction.shape[0])
 
     return accuracy, prediction
+
