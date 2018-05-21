@@ -11,7 +11,7 @@ Because RWC dataset consists of commercial songs it is illegal to share the audi
 * Beat : Beat array contains the number of frame which is beat.
 
 ## Baseline Code
-Once you download the file structure is like below. In the dataset folder there are chroma, chord and beat information. Baseline code classify chords using the dataset with 1 layer of bidirectional LSTM. Detailed explanation of each file is in the comment so please check in each file.
+ You should download dataset from [KLMS](http://klms.kaist.ac.kr/mod/ubfile/view.php?id=249693) and once you download both dataset and code, file structure is like below. In the dataset folder there are chroma, chord and beat information. Baseline code classify chords using the dataset with 1 layer of bidirectional LSTM. Detailed explanation of each file is in the comment so please check in each file.
 
 * hw3
   * dataset
