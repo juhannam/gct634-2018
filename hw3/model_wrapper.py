@@ -28,7 +28,7 @@ class Wrapper(object):
     def accuracy(self, prediction, reference):
         prediction = prediction.max(1)[1].type(torch.LongTensor)
         reference = reference.cpu()
-        correct = (prediction == reference).sum().data[0]
+        correct = (prediction == reference).sum().item()
 
         return correct/float(prediction.size(0))
 
@@ -60,7 +60,7 @@ class Wrapper(object):
 
             output_list.append(output.cpu().data.numpy())
             total_acc += acc
-            total_loss += loss.data[0]
+            total_loss += loss.item()
 
         total_output = np.concatenate(output_list).argmax(axis=1)
         total_acc = total_acc/x.shape[0]
