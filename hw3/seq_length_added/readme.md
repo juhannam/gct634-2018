@@ -6,7 +6,7 @@ If you already improved algorithm a lot from the original baseline code please r
 
 * main.py
   * SEQ_LENGTH
-  * data_manager.preprocess - SEQ_LENGTH add
+  * data_manager.preprocess - SEQ_LENGTH added
   * wrapper = Wrapper(~)
   * chroma_test = chroma_test.reshape(~)
 
